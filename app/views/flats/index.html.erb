@@ -1,0 +1,34 @@
+  <div class="row"><h1>All Our Flats</h1></div>
+  <div class="row"><p>All 160 Flats.</p></div>
+
+
+  <div class="row">
+
+        <% @flats.each do |flat| %>
+
+          <div class="card col-4">
+            <div style="background-image:url('https://source.unsplash.com/random/?car'); height: 160px;"> </div>
+            <div>
+              <div>
+                <h4><%= flat.name %></h4>
+                <p><%= flat.address %></p>
+
+              </div>
+              <div>
+                <%= flat.price_per_night %>
+                <%= flat.number_of_guests %>
+              </div>
+
+
+
+            </div>
+            <div>
+              <%= link_to 'more info', flat_path(flat), class: "text-primary" %>
+              <%= link_to 'edit', edit_flat_path(flat), class: "text-warning"  %>
+              <%= link_to 'remove', @flat, method: :delete , class: "text-danger"  %>
+            </div>
+
+          </div>
+        <% end %>
+
+  </div>
